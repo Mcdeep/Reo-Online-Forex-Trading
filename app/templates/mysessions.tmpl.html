@@ -1,0 +1,22 @@
+
+<page-header page="vm.page" ></page-header>
+
+<section id="schedule-me">
+  <div class="container">
+    <div class="row" ng-hide="vm.zeroSessions">
+      <ul class="session_list_me">
+        <li ng-repeat="session in vm.sessions">
+          <session-item on-book="vm.bookSession(session)" session="session"></session-item>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="row empty-response" ng-show="vm.zeroSessions" style="text-align:center;">
+      <p>sorry</p>
+      <i class="fa fa-calendar-times-o"></i>
+      <h4>You have no booked upcoming classes</h4>
+    </div>
+  </div>
+</section>
+
+ <div ng-include="'templates/footer.tmpl.html'"></div>

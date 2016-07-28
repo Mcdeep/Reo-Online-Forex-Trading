@@ -1,0 +1,39 @@
+<page-header page="vm.page"></page-header>
+
+<section id="schedule-manage">
+
+
+    <div class="container">
+          <div class="row">
+            <div class="col s12 right-align toolbar">
+                    <button ng-click="vm.add()" class="waves-effect btn-radius blue-grey btn-small waves-light btn">
+                           Upload Students
+                    </button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                    <th data-field="id">#</th>
+                    <th data-field="name">Session Date</th>
+                    <th data-field="level">Level</th>
+                    <th data-field="slots"># Slots</th>
+                    <th data-field="location">Locations</th>
+                    <th data-field="duration">Duration</th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="session in vm.schedules">
+                  <td>{{$index + 1}}</td>
+                  <td>{{session.session_datetime}}</td>
+                  <td>{{session.level}}</td>
+                  <td>{{session.slots}}</td>
+                  <td>{{session.location}}</td>
+                  <td>{{session.duration}}</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</section>

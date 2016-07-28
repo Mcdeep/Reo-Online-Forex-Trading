@@ -1,0 +1,56 @@
+<page-header page="vm.page"></page-header>
+
+<section id="uploadFiles">
+        <div class="container">
+                <div class="row">
+                        <div class="col s12">
+                                <p>
+                                        Select CSV files to upload with the follwing fields:
+                                </p>
+                                <ng-csv-import content="vm.csv.content"
+                                          header="vm.csv.header"
+                                          separator="vm.csv.separator"
+                                          result="vm.csv.result"
+                                          accept="vm.csv.accept"
+                                          callback="vm.callback">
+                                </ng-csv-import>
+                                <table>
+                                  <thead>
+                                    <tr>
+                                        <th data-field="id">#</th>
+                                        <th data-field="firstname">First Name</th>
+                                        <th data-field="lastname">Last Name</th>
+                                        <th data-field="cellphone">Cellphone </th>
+                                        <th data-field="paid">Paid</th>
+                                        <th data-field="student_number">Student Number</th>
+                                        <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr ng-repeat="student in vm.Students">
+                                      <td>{{$index + 1}}</td>
+                                      <td>{{student.firstname}}</td>
+                                      <td>{{student.lastname}}</td>
+                                      <td>{{student.cellphone}}</td>
+                                      <td>{{student.paid}}</td>
+                                      <td>{{student.student_number}}</td>
+                                      <td></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                                <p>
+                                        <button ng-show="vm.Students.length > 0" ng-click="vm.uploadRecords()" class="waves-effect btn-large waves-light btn-radius blue-grey btn">
+                                               Upload Records
+                                         </button>
+                                </p>
+
+                        </div>
+
+                </div>
+
+        </div>
+
+
+
+</section>

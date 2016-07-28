@@ -1,0 +1,105 @@
+<!-- Modal Structure -->
+<script type="text/ng-template" id="login.form.html">
+    <div class="modal-head">
+      <h4>Login</h4>
+      <p>Here's to a great start</p>
+    </div>
+    <form ng-submit="vm.login()">
+      <div class="input-field col s12">
+        <input type="text" placeholder="email" ng-model="vm.log.email" class="validate">
+      </div>
+      <div class="input-field col s12">
+        <input id="last_name" placeholder="Password" ng-model="vm.log.password" type="password" class="validate">
+      </div>
+      <div class="col s12">
+        <button type="submit" ng-di="vm.loading" class="waves-effect waves-light btn mdl-button--colored btn-radius">
+            Login
+          </button>
+      </div>
+      <p class="forgot">
+        <a href="">Oops! Forgot Password</a>
+      </p>
+    </form>
+</script>
+
+<script type="text/ng-template" id="succes.modal.html">
+        <div class="modal-head">
+          <i class="fa {{vm.data.icon}} modal-icon">
+            </i>
+          <h4>{{vm.data.title}}</h4>
+        </div>
+        <div class="row">
+          <div class="col s12">
+             {{vm.data.message}}
+          </div>
+          <div class="col s12">
+            <button type="submit" ng-click="closeThisDialog()" class="waves-effect waves-light btn mdl-button--colored btn-radius">
+                {{vm.data.button}}
+              </button>
+          </div>
+        </div>
+</script>
+
+<script type="text/ng-template" id="confirm.modal.html">
+        <div class="modal-head">
+          <i class="fa {{vm.data.icon}} modal-icon">
+            </i>
+          <h4>{{vm.data.title}}</h4>
+        </div>
+        <div class="row">
+          <div class="col s12">
+             {{vm.data.message}}
+          </div>
+          <div class="col s12">
+            <button type="submit" ng-click="closeThisDialog('cool')" class="waves-effect waves-light btn mdl-button--colored btn-radius">
+                {{vm.data.button}}
+              </button>
+              <button type="submit" ng-click="closeThisDialog()" class="waves-effect waves-light btn btn-radius">
+                  Cancel
+                </button>
+          </div>
+        </div>
+</script>
+
+<script type="text/ng-template" id="component-page-head.html">
+        <div id="hero-2" class="mdl-layout_content">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <h2 style="text-align:center">{{ $ctrl.page.title }}</h2>
+                        <p style="text-align:center">{{ $ctrl.page.subTitle }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</script>
+
+<script type="text/ng-template" id="component-session-item.html">
+        <div class="col s12 item">
+            <div class="col s7">
+                <div class="col s12">
+                  <div class="col s3 day">
+                    <h3>  {{$ctrl.day}} </h3>
+                    <span>  {{$ctrl.month}} </span>
+                  </div>
+                  <div class="col s8">
+                    <p class="time">
+                        {{$ctrl.weekDay}}<i class="fa fa-clock-o" style="font-size:18px; margin:0 5px" ></i>{{$ctrl.time}}
+                    </p>
+                    <p class="level">
+                        {{ $ctrl.session.level }}
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col s5" style="text-align:center">
+                <p class="slots">
+                  {{$ctrl.session.available}} open Slots
+                </p>
+
+                <button ng-click="$ctrl.book()" class="waves-effect blue-grey btn-small waves-light btn-flat">
+                       Book Slot
+                </button>
+            </div>
+        </div>
+</script>

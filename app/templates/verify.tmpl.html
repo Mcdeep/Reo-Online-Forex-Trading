@@ -1,0 +1,20 @@
+<page-header page="vm.page">
+</page-header>
+
+<section id="schedule-public">
+  <div class="row empty-response" style="text-align:center;">
+    <p>yay!!</p>
+    <i class="fa fa-envelope-o"></i>
+    <h4 style="margin-bottom:5px">Lets Verify you email</h4>
+    <p style="margin:5px 0">
+      {{ vm.email }}
+    </p>
+
+    <button ng-click="vm.emailVerify()" class="waves-effect btn-large waves-light btn-radius blue-grey btn">
+      Verify
+    </button>
+  </div>
+  </div>
+</section>
+
+<div ng-include="'templates/footer.tmpl.html'"></div>

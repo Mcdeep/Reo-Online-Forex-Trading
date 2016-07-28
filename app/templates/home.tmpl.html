@@ -1,0 +1,89 @@
+<div cg-busy="{promise:vm.loading,message:'Loading Your Data'}"></div>
+<section id="banner">
+    <div id="hero" class="mdl-layout_content">
+        <div class="container">
+            <div class="row">
+                <div class="col s6">
+                    <h1 class="title">Free online forex Trading Course</h1>
+                    <h2 class="sub_title">This course is worth over R10000 and its absolutely free</h2>
+                </div>
+                <div class="form-sign col s4 offset-s2" >
+                    <div class="col s12" style="text-align:center" ng-if="vm.loggedIn">
+                      <h4 style="color:white">Welcome</h4>
+                      <h6 style="color:grey">{{ vm.loggedUser.firstname + ' ' + vm.loggedUser.lastname}}</h6>
+                      <p ng-if="vm.loggedUser.student_number!==null">
+                        <a ng-click="vm.gotoSchedules()" class="waves-effect blue-grey blue-grey btn"><i class="fa fa-calendar left"></i>SCHEDULE</a>
+                      </p>
+                      <p >
+                        <a href="#" class="waves-effect waves-light btn"><i class="fa fa-book left"></i>COURSES</a>
+                      </p>
+                      <p>
+                        <a ng-click="vm.logOut()" class="waves-effect waves-light btn"><i class="fa fa-sign-out left"></i>SIGN-OUT</a>
+                      </p>
+                    </div>
+
+                    <form ng-submit="vm.registerUser()" ng-if="!vm.loggedIn" novalidate>
+                        <div class="col s6">
+                            <input name="name" ng-model="vm.user.firstname" class="input-field" type="text" placeholder="Name" required/>
+                        </div>
+                        <div class="col s6">
+                            <input name="surname" ng-model="vm.user.lastname" class="input-field" type="text" placeholder="Surname" required/>
+                        </div>
+                        <div class="col s12">
+                            <input name="cellphone" ng-model="vm.user.cellphone" type="tel" placeholder="Cellphone" />
+                        </div>
+                        <div class="col s12">
+                            <input name="email" ng-model="vm.user.email" type="email" placeholder="Email" required/>
+                        </div>
+                        <div class="col s12">
+                            <input name="password" ng-model="vm.user.password" type="password" placeholder="Password" required />
+                        </div>
+                        <div class="col s12">
+                            <input name="country" ng-model="vm.user.country" type="text" placeholder="Country" required/>
+                        </div>
+                        <div class="col s12">
+                            <input name="city" ng-model="vm.user.city" type="text" placeholder="City" required/>
+                        </div>
+                        <div class="col s12">
+                            <button type="submit" class="waves-effect waves-light btn mdl-button--colored">
+                                SIGN-UP FOR FREE
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class=" col s4">
+                <div class="service">
+                    <img class="icon" src="images/home/seminars.svg">
+                    <h3>Seminars</h3>
+                    <p>All About our Serminars</p>
+                </div>
+            </div>
+            <div class=" col  s4 ">
+                <div class="service">
+                    <img class="icon" src="images/home/mentor.svg">
+                    <h3>Mentor</h3>
+                    <p>All About our Serminars</p>
+                </div>
+            </div>
+
+            <div class=" col s4 ">
+                <div class="service">
+                    <img class="icon" src="images/home/aboutus.svg">
+                    <h3>About us</h3>
+                    <p>All About our Serminars</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div ng-include="'templates/footer.tmpl.html'"></div>

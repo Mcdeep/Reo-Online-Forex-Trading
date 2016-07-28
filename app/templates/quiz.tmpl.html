@@ -1,0 +1,39 @@
+
+<div id="hero-2" class="mdl-layout_content ng-scope">
+  <div class="container">
+    <div class="row quiz_hero_row">
+        <a ng-click="vm.gotoLesson()" class="back"><i class="fa fa-chevron-left animated slideInRight"></i><span>Back to lesson</span></a>
+    </div>
+  </div>
+  </div>
+<section id="quiz" class="anim-fade">
+  <div class="quiz_question ">
+    <div class="container">
+      <div class="quiz">
+        <wizard on-finish="vm.submitQuiz()">
+          <wz-step ng-repeat="q in vm.Quiz">
+            <div class="row">
+              <div class="col s6 question animated fadeIn">
+                <p style="text-align:center">[ Question {{$index+1}} ]</p>
+                <h4 style="text-align:center">{{q.questions}}</h4>
+              </div>
+              <div class="col s6 answer animated slideInRight">
+                <p ng-repeat="ans in q.answers">
+                  <input name="Q{{q.id}}" ng-model="vm.AnsData[$parent.$index].answer_id" type="radio" ng-click="vm.addQuestion($parent.$index)" value="{{ans.id}}" id="Q{{q.id+''+ans.id}}"
+                  />
+                  <label for="Q{{q.id+''+ans.id}}">{{ans.possible}}</label>
+                </p>
+              </div>
+
+              <div class="col s12" style="text-align:center; margin-top:10px">
+                  <button wz-previous ng-disabled="$index==0" class="btn-floating blue-grey btn-small waves-effect waves-light"><i class="fa fa-chevron-left"></i></button>
+                  <button wz-next ng-disabled="!vm.AnsData[$index].answer_id" style="margin-left:10px" class="btn-floating blue-grey btn-small waves-effect waves-light "><i class="fa fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </wz-step>
+      </div>
+      </wizard>
+    </div>
+  </div>
+  {{vm.AnsData}}
+</section>

@@ -1,0 +1,87 @@
+<div id="hero-2" class="mdl-layout_content">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p class="lesson_number">
+                    1
+                </p>
+                <h2 style="text-align:center">{{vm.headTitle}}</h2>
+                <p style="text-align:center">{{vm.headDesc}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="main lesson">
+    <div id="crs-single-module">
+        <div class="progress-row" ng-hide="true">
+            <ul id="progress">
+                <li class="completed">
+                    <a href="">01</a>
+                </li>
+                <li class="current">
+                    <a href="">02 <span>What is FX?</span></a>
+                </li>
+                <li>
+                    <a href="">03</a>
+                </li>
+                <li>
+                    <a href="">04</a>
+                </li>
+                <li>
+                    <a href="">05</a>
+                </li>
+                <li>
+                    <a href="">06</a>
+                </li>
+                <li>
+                    <a href="">07</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="col s6">
+                       s
+                    </div>
+                    <div class="col s4 right-align">
+                        <div class="switch" style="margin-top: 7px;">
+                                <label>
+                                    Pictorial
+                                <input type="checkbox" ng-model="vm.lessonTypeVideo">
+                                <span class="level"></span>
+                                    Video
+                                </label>
+                            </div>
+                    </div>
+                    <div class="col s2 right-align">
+                            <button ng-click="vm.gotoQuiz()" class="waves-effect btn-radius blue-grey btn-small waves-light btn">
+                                   Quiz
+                            </button>
+                    </div>
+                </div>
+                <div class="lesson_view col s12">
+                    <div class="col s12" ng-if="vm.lessonTypeVideo">
+                        <div ng-include="'templates/video.tmpl.html'"></div>
+                    </div>
+                    <div class="col s12" ng-if="!vm.lessonTypeVideo">
+                        <div ng-include="'templates/pictorial.tmpl.html'"></div>
+                    </div>
+                </div>
+                 <div class="col s12">
+                        <p class="action_button" style="text-align:center">
+                            <button ng-click="" ng-click="vm.gotoQuiz()" class="waves-effect btn-large waves-light btn-radius blue-grey btn">
+                                   START QUIZ
+                             </button>
+                        </p>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+    <hr class="break" />
+    </div>
+</section>
+
+<div ng-include="'templates/footer.tmpl.html'"></div>

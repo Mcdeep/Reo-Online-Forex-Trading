@@ -1,0 +1,84 @@
+<page-header page="vm.page"></page-header>
+
+
+<section id="schedule-create">
+  <div class="container">
+    <div class="row">
+      <div class="col s12"  style="text-align:center;font-weight:300;background-color:rgb(222,184,135)">
+
+      </div>
+    </div>
+    <div class="row">
+      <form name="createSchedule" ng-submit="vm.createSchedule()" class="col s12" novalidate>
+          <div class="row">
+            <div class="input-field col s4">
+              <input input-date
+                type="text"
+                name="created"
+                id="sdate"
+                ng-model="vm.schedule.session_date"
+                container=""
+                format="dd/mm/yyyy"
+                months-full="{{ month }}"
+                months-short="{{ monthShort }}"
+                weekdays-full="{{ weekdaysFull }}"
+                weekdays-short="{{ weekdaysShort }}"
+                weekdays-letter="{{ weekdaysLetter }}"
+                disable="disable"
+                min="{{ vm.minDate }}"
+                max="{{ maxDate }}"
+                today="today"
+                clear="clear"
+                close="close"
+                select-years="15"
+                on-start="onStart()"
+                on-render="onRender()"
+                on-open="onOpen()"
+                on-close="onClose()"
+                on-set="onSet()"
+                on-stop="onStop()" />
+              <label for="sdate">Session Date</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="input_starttime" ng-model="vm.time" required ng-pattern="/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/" type="text">
+              <label for="input_starttime" >Time</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="duration" type="number" ng-model="vm.schedule.duration" class="validate">
+              <label for="duration">Duration(hrs)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <select class="" id="level" ng-model="vm.schedule.level" material-select watch>
+                  <option value="BEGINNER">Beginner</option>
+                  <option value="ADVANCED">Advanced</option>
+              </select>
+              <label for="level">Course Level</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="location" ng-model="vm.schedule.location" type="text" class="validate">
+              <label for="location">Location</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="slots" type="number" ng-model="vm.schedule.slots"   class="validate">
+              <label for="slots">Number of Slots</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="notes" type="text" ng-model="vm.schedule.notes"  class="validate">
+              <label for="notes">Notes</label>
+            </div>
+            <div class="input-field col s4">
+              <input type="checkbox" ng-model="vm.schedule.recuring" class="filled-in" id="filled-in-box" checked="checked" />
+                <label for="filled-in-box">Recurring Class</label>
+            </div>
+          </div>
+          <div class="col s12 right-align">
+              <button type="submit" class="waves-effect waves-light btn mdl-button--colored btn-radius ">
+                Create
+              </button>
+          </div>
+      </form>
+    </div>
+  </div>
+</section>
