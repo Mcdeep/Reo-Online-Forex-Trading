@@ -47,7 +47,6 @@
     $scope.$on('youtube.player.ended', function ($event, player) {
         // play it again
         console.log('It has Finished Playing');
-
     });
   }
 

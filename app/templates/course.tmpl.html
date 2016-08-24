@@ -1,47 +1,22 @@
-<div id="hero-2" class="mdl-layout_content">
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <h2>
-                        Course
-                </h2>
-                <p class="mb30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum debitis harum sint natus? Deleniti voluptas,
-                    eum voluptates repellendus.</p>
-            </div>
-        </div>
-    </div>
-</div>
+<page-header page="vm.page"></page-header>
 
 <section id="main">
         <div class="container">
-            <div id="search">
+            <div id="search" ng-hide="vm.Modules.length == 0">
                 <div class="row">
                     <div class="col s12">
                         <input type="text" ng-model="vm.crs_search" class="center-align" id="search-input" placeholder="Search">
                     </div>
                 </div>
             </div>
-
             <div id="crs_modules">
                 <div class="row">
                     <!--Modules -->
-
-                    <div class="col s4" ng-show="vm.Modules.length <= 0">
-                        <div class="card small">
-                            <!-- Card Content -->
-                             <p class="md-count">Preview</p>
-                            <div class="card-content">
-                                <span class="card-title">
-                                    Forex Basics Whais fore
-                                </span>
-                                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-                                <div class="card-action">
-                                    <a href="#/lesson/1">Preview</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row empty-response" ng-show="vm.Modules.length == 0" style="text-align:center;">
+                      <p>sorry</p>
+                      <i class="fa fa-calendar-times-o"></i>
+                      <h4>No modules uploaded</h4>
                     </div>
-
                     <div class="col s4" ng-repeat="lesson in vm.Modules | filter:vm.crs_search ">
                         <div class="card small">
                             <!-- Card Content -->

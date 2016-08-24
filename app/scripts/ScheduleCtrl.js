@@ -44,17 +44,17 @@
                                     {
                                             title:'Yay',
                                             message: 'succes',
-                                            icon:'fa-adjust',
+                                            icon:'fa-check-square-o',
                                             button:'Cool'
                                     }
                             );
-                    }else{
+                    }else if(res.code == "03"){
                             var suc = WidgetSrv.successDialog(
                                     {
-                                            title:'Yay',
-                                            message: 'succes',
-                                            icon:'fa-adjust',
-                                            button:'Cool'
+                                            title:'Already Booked',
+                                            message: 'You have already booked for a class this week',
+                                            icon:'fa-exclamation',
+                                            button:'Alright'
                                     }
                             );
                     }
@@ -93,63 +93,57 @@
       }
 
 })();
+
+
 (function() {
   'use strict';
   var rapps =  angular.module('rapp');
 
-    rapps.controller('ScheduleManageCtrl', ['DataCtx','localStorageService','ngDialog','$rootScope', '$state', ScheduleManageCtrl]);
+    rapps.controller('ScheduleManageCtrl', ['DataCtx','localStorageService','ngDialog','$rootScope', '$state',"_m", ScheduleManageCtrl]);
 
-      function ScheduleManageCtrl(DataCtx, localStorageService, ngDialog, $rootScope, $state) {
+      function ScheduleManageCtrl(DataCtx, localStorageService, ngDialog, $rootScope, $state,_m) {
         var vm = this;
         vm.page = {
           title: "Manage Sessions",
         };
 
-        vm.csv = {
-          content: null,
-          header: true,
-          headerVisible: true,
-          separator: ';',
-          separatorVisible: true,
-          result: null,
-          encoding: 'ISO-8859-1',
-          encodingVisible: true,
-        };
 
-        vm.schedules = [{
-          "session_datetime": "2016/7/21",
-          "level": "BEGINNER",
-          "slots": "10",
-          "location": "Sandton",
-          "duration": "2"
-        }, {
-          "session_datetime": "2016/7/21",
-          "level": "BEGINNER",
-          "slots": "10",
-          "location": "Sandton",
-          "duration": "2"
-        }, {
-          "session_datetime": "2016/7/21",
-          "level": "ADVANCED",
-          "slots": "9",
-          "location": "Sandton",
-          "duration": "2"
-        }];
-        vm.edit = edit;
+
+        vm.loadSessions = loadSessions;
+
+
         vm.add = add;
 
-        function edit(session) {
+        DataCtx.session.get({id:'admin'}).$promise.then(loadSessions, errLoading);
 
+        function loadSessions(res) {
+          if (angular.isArray(res.data)) {
+            if(res.data.length > 0){
+              vm.schedules = res.data;
+              angular.forEach(vm.schedules, function(sched, key){
+                vm.schedules[key]["session_datetime"] = _m(vm.schedules[key].day, "YYYY-MM-DD HH:mm:ss").format("DD-MMM-YYYY HH:mm");
+              });
+              vm.zeroSessions = false;
+            }else{
+              vm.zeroSessions = true;
+            }
+          } else {
+            vm.zeroSessions = true;
+           // Materialize.toast("Session Expired, log In", 2000);
+          }
+        }
+
+        function errLoading() {
+          Materialize.toast("Could Connect to Server", 2000);
         }
 
         function add() {
           $state.go('schedule-create');
         }
+
+
+
       }
-
-
-
-
 
     rapps.controller('ScheduleCreateCtrl', ['DataCtx','localStorageService','ngDialog','$rootScope', '_m', '$state',ScheduleCreateCtrl]);
       function ScheduleCreateCtrl(DataCtx, localStorageService, ngDialog, $rootScope, _m, $state) {
@@ -183,7 +177,7 @@
             Session.$save().then(function(res) {
               if (res.code == "00") {
                 Materialize.toast("Session saved Successful", 2000);
-                $state.go('schedule-manage');
+                $state.go('schedule-manages');
               } else {
                 Materialize.toast("Failed to save Session", 2000);
               }
@@ -193,9 +187,6 @@
           }
         }
       }
-
-
-
 
  rapps.controller('MySessionsCtrl', ['DataCtx',
         'localStorageService',

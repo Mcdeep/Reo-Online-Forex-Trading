@@ -6,9 +6,7 @@
   function LoginCtrl(DataCtx, localStorageService, ngDialog, $rootScope, $state) {
     var vm = this;
     vm.loading = false;
-    Materialize.toast("Login In...", 1000);
     vm.login = login;
-
     function login() {
       if (vm.log.email !== "" && vm.log.password !== "") {
 
@@ -21,13 +19,12 @@
           if (angular.isDefined(res.token)) {
             Materialize.toast("Login Successful", 2000);
             localStorageService.set('token', res.token);
-
             DataCtx.userinfo.get().$promise.then(function(res) {
               localStorageService.set('userInfo', res.data);
               vm.log.email = "";
               vm.log.password = "";
+              vm.loading = false;
               $rootScope.$broadcast('quiz-login');
-
               ngDialog.close();
               $state.transitionTo($state.current, {}, {
                 reload: true,
@@ -36,8 +33,11 @@
               });
             });
           } else {
-            vm.message = "Invalid username / password";
-            vm.loading = false;
+            if(res.code =="06" || res.code=="07"){
+                    vm.message = "Invalid username / password combination";
+                    vm.loading = false;
+                    Materialize.toast(vm.message, 3000);
+            }
           }
         }, function() {
           vm.loading = false;

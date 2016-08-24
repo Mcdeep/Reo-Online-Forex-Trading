@@ -4,6 +4,7 @@
   angular.module('rapp')
     .factory('WidgetSrv', ['ngDialog',WidgetSrv]);
 
+
   function WidgetSrv(ngDialog) {
     return {
             successDialog: function(data){

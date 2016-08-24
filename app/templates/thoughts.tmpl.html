@@ -1,0 +1,24 @@
+
+<page-header page="vm.page" ></page-header>
+
+<section id="schedule-me">
+  <div class="container">
+    <div class="row" ng-hide="vm.zeroThoughts">
+      <ul class="session">
+        <li ng-repeat="session in vm.sessions">
+          <session-item on-book="vm.bookSession(session)" session="session"></session-item>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="row empty-response" ng-show="vm.zeroThoughts" style="text-align:center;">
+      <p>sorry</p>
+      <i class="fa fa-comments-o"></i>
+      <h4>No Published Thoughts</h4>
+    </div>
+  </div>
+
+
+</section>
+
+<div ng-include="'templates/footer.tmpl.html'"></div>

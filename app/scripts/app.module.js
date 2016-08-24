@@ -85,6 +85,11 @@
                 templateUrl: "templates/verify.tmpl.html",
                 controller: 'VerifyCtrl',
                 controllerAs: 'vm'
+            }).state('thoughts', {
+                url: "/thoughts",
+                templateUrl: "templates/thoughts.tmpl.html",
+                controller: 'ThoughtCtrl',
+                controllerAs: 'vm'
             });
 
         localStorageServiceProvider

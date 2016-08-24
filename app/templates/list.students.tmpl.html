@@ -5,31 +5,36 @@
 
     <div class="container">
           <div class="row">
-            <div class="col s12 right-align toolbar">
-                    <button ng-click="vm.add()" class="waves-effect btn-radius blue-grey btn-small waves-light btn">
-                           Upload Students
-                    </button>
+            <div class="col s12 toolbar">
+                    <div class="col s6">
+                            <input name="searh" placeholder="Search" ng-model="vm.search"/>
+                    </div>
+                    <div class="col right-align s6">
+                            <button ng-click="vm.uploadStudents()" class="waves-effect btn-radius blue-grey btn-small waves-light btn">
+                                Upload Students
+                            </button>
+                    </div>
             </div>
             <table>
               <thead>
                 <tr>
-                    <th data-field="id">#</th>
-                    <th data-field="name">Session Date</th>
-                    <th data-field="level">Level</th>
-                    <th data-field="slots"># Slots</th>
-                    <th data-field="location">Locations</th>
-                    <th data-field="duration">Duration</th>
-                    <th></th>
+                    <th data-field="id"><i class="fa fa-genderless"></i></th>
+                    <th data-field="firstname">First Name</th>
+                    <th data-field="lastname">Last Name</th>
+                    <th data-field="cellphone">Cellphone</th>
+                    <th data-field="paid">Paid</th>
+                    <th data-field="student_number">Student Number</th>
+                    <th><i class="fa fa-th"></i></th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="session in vm.schedules">
+                <tr ng-repeat="student in vm.Students | filter: vm.search">
                   <td>{{$index + 1}}</td>
-                  <td>{{session.session_datetime}}</td>
-                  <td>{{session.level}}</td>
-                  <td>{{session.slots}}</td>
-                  <td>{{session.location}}</td>
-                  <td>{{session.duration}}</td>
+                  <td>{{student.firstname}}</td>
+                  <td>{{student.lastname}}</td>
+                  <td>{{student.cellphone}}</td>
+                  <td>{{student.paid}}</td>
+                  <td>{{student.student_number}}</td>
                   <td></td>
                 </tr>
               </tbody>

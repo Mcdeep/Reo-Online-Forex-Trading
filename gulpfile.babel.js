@@ -143,6 +143,7 @@ gulp.task('scripts', () =>
        './app/scripts/CourseCtrl.js',
        './app/scripts/ScheduleCtrl.js',
        './app/scripts/StudentCtrl.js',
+       './app/scripts/ThoughtCtrl.js',
        './app/scripts/CourseLessonCtrl.js',
        './app/scripts/Components.js',
        './app/scripts/main.js'
