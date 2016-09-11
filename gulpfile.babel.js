@@ -117,6 +117,7 @@ gulp.task('scripts', () =>
 
       './bower_components/jquery/dist/jquery.js',
       './bower_components/moment/min/moment.min.js',
+        './bower_components/lodash/dist/lodash.min.js',
        './bower_components/materialize/dist/js/materialize.js',
        './bower_components/angular/angular.js',
        './bower_components/angular-sanitize/angular-sanitize.js',
@@ -134,7 +135,6 @@ gulp.task('scripts', () =>
        './bower_components/angular-busy/dist/angular-busy.js',
         './bower_components/angular-csv-import/dist/angular-csv-import.js',
        './app/scripts/app.module.js',
-       './app/scripts/ApiBackend.js',
        './app/scripts/DataSrv.js',
        './app/scripts/WidgetSrv.js',
        './app/scripts/UserSrv.js',

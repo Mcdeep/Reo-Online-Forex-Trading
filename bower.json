@@ -44,6 +44,7 @@
     "angular-animate": "^1.5.6",
     "materialize-clockpicker": "*",
     "moment": "^2.14.1",
-    "angular-csv-import": "^0.0.36"
+    "angular-csv-import": "^0.0.36",
+    "lodash": "^4.15.0"
   }
 }

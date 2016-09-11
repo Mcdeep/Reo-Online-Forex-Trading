@@ -50,6 +50,9 @@
 <body ng-app="rapp" ng-controller="LayoutCtrl as vm" ng-cloak>
     <!-- Add your site or app content here -->
 
+    <div class="reoLoading" ng-hide="" style="position: absolute; top:0;he" >
+
+    </div>
     <div ng-include="'templates/header.tmpl.html'"></div>
 
     <div ng-include="'templates/main.tmpl.html'"></div>
@@ -60,6 +63,7 @@
 
     <script src="scripts/jquery.js" type="text/javascript"></script>
     <script src="scripts/moment.min.js" type="text/javascript"></script>
+    <script src="scripts/lodash.min.js" type="text/javascript"></script>
     <script src="scripts/materialize.js" type="text/javascript"></script>
     <script src="scripts/angular.js" type="text/javascript"></script>
     <script src="scripts/angular-sanitize.js" type="text/javascript"></script>
@@ -77,7 +81,7 @@
     <script src="scripts/ngDialog.js" type="text/javascript"></script>
     <script src="scripts/angular-csv-import.js" type="text/javascript"></script>
 
-    <script src="scripts/ApiBackend.js" type="text/javascript"></script>
+
     <script src="scripts/app.module.js" type="text/javascript"></script>
     <script src="scripts/DataSrv.js" type="text/javascript"></script>
      <script src="scripts/WidgetSrv.js" type="text/javascript"></script>

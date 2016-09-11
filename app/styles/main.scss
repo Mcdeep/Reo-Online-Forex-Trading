@@ -167,6 +167,10 @@ nav {
   background-color: white;
   height: 100px;
   line-height: 100px;
+
+  ul a{
+    display: inline-block;
+  }
   .nav-wrapper {
     line-height: 100px;
     .brand-logo {
@@ -175,6 +179,7 @@ nav {
     .nav-item {
       color: $dark_text;
       line-height: 1.9rem;
+
       transition: all 0.12s ease-in;
       &:hover {
         background-color: transparent;
@@ -406,7 +411,12 @@ nav {
     padding: 0 0.5rem;
   }
   .card {
-    transition: transform 0.3s ease-in-out;
+    opacity: 0.5;
+    &.enabled{
+      transition: transform 0.3s ease-in-out;
+      opacity: 1;
+    }
+
     &:before {
       content: "";
       position: absolute;
@@ -415,6 +425,9 @@ nav {
       background-color: $suttle_brown;
       top: 3rem;
       left: -2px;
+    }
+    &.small{
+      height: 230px;
     }
     .md-count {
       font-weight: 600;
@@ -438,10 +451,23 @@ nav {
       font-weight: 500;
       line-height: 25px;
     }
+    .crs-status{
+      position: absolute;
+      bottom: 68px;
+      width: 100%;
+      margin-left: -20px;
+      padding: 10px;
+      background: goldenrod;
+      color: white;
+
+      &.completed{
+        background: #5c9c6e;
+      }
+    }
     .card-action {
       text-align: center;
     }
-    &:hover {
+    &.enabled:hover {
       transform: scale(1.02);
       z-index: 892;
       box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -499,7 +525,7 @@ nav {
   text-align: center;
   .modal-head {
     text-align: center;
-    margin: -22px -16px 26px;
+    margin: -22px -16px 10px;
     padding: 5px;
     border-bottom: 1px solid rgba(140, 140, 140, 0.1);
     h4 {
@@ -547,6 +573,19 @@ nav {
   .forgot {
     text-align: right;
     font-size: x-small;
+  }
+
+  /*Results Dialog*/
+  .results{
+    .score-title{
+      font-size: medium;
+    }
+    .score-results{
+      font-size: x-large;
+    }
+    .msg{
+      font-size: small;
+    }
   }
 }
 

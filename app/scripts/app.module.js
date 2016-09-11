@@ -86,6 +86,12 @@
 				controller: 'VerifyCtrl',
 				controllerAs: 'vm'
 			})
+			.state('resetPassword', {
+				url: "/password/:email/:code",
+				templateUrl: "templates/verify.tmpl.html",
+				controller: 'PasswordCtrl',
+				controllerAs: 'vm'
+			})
 			.state('thoughts', {
 				url: "/thoughts",
 				templateUrl: "templates/thoughts.tmpl.html",

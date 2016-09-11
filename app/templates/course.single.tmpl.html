@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col s12">
                 <p class="lesson_number">
-                    1
+                    {{vm.lessonID}}
                 </p>
                 <h2 style="text-align:center">{{vm.headTitle}}</h2>
                 <p style="text-align:center">{{vm.headDesc}}</p>
@@ -42,20 +42,27 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <div class="col s6">
-                       s
+                    <div class="col s4" style="margin-top: 7px">
+                        <div class="switch">
+                            <label>
+                                Pictorial
+                                <input  type="checkbox" ng-model="vm.lessonTypeVideo">
+                                <span class="lever"></span>
+                                Video
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col s4">
+                        <!-- Dropdown Structure -->
+                        <p style="text-align: center" data-activates='courseDropdown' dropdown data-hover="false">{{vm.headTitle}}</p>
+
+                        <ul id="courseDropdown" class='dropdown-content'>
+                            <li><a href="javascript:void(0);">Schedules</a></li>
+                            <li><a href="javascript:void(0);">Profile</a></li>
+                            <li><a ng-click="vm.logOut()">Logout</a></li>
+                        </ul>
                     </div>
                     <div class="col s4 right-align">
-                        <div class="switch" style="margin-top: 7px;">
-                                <label>
-                                    Pictorial
-                                <input type="checkbox" ng-model="vm.lessonTypeVideo">
-                                <span class="level"></span>
-                                    Video
-                                </label>
-                            </div>
-                    </div>
-                    <div class="col s2 right-align">
                             <button ng-click="vm.gotoQuiz()" class="waves-effect btn-radius blue-grey btn-small waves-light btn">
                                    Quiz
                             </button>
@@ -71,7 +78,7 @@
                 </div>
                  <div class="col s12">
                         <p class="action_button" style="text-align:center">
-                            <button ng-click="" ng-click="vm.gotoQuiz()" class="waves-effect btn-large waves-light btn-radius blue-grey btn">
+                            <button ng-click="vm.gotoQuiz()" class="waves-effect btn-large waves-light btn-radius blue-grey btn">
                                    START QUIZ
                              </button>
                         </p>

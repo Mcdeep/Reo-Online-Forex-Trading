@@ -1,57 +1,45 @@
 (function () {
-        'use strict';
+	'use strict';
 
-        angular.module('rapp')
-                .controller('ThoughtCtrl', ['DataCtx', 'localStorageService', 'ngDialog', '$rootScope', '_m', '$scope', ThoughtCtrl]);
+	angular.module('rapp')
+		.controller('ThoughtCtrl', ['DataCtx', 'localStorageService', 'ngDialog', '$rootScope', '_m', '$scope', ThoughtCtrl]);
 
-        function ThoughtCtrl(DataCtx, localStorageService, ngDialog, $rootScope, _m, $scope) {
-                var vm = this;
-                vm.page = {
-                        title: "Thoughts",
-                        subTitle: "Share thoughts of the Market"
-                };
+	function ThoughtCtrl(DataCtx, localStorageService, ngDialog, $rootScope, _m, $scope) {
+		var vm = this;
+		vm.page = {
+			title: "Thoughts",
+			subTitle: "Share thoughts of the Market"
+		};
+		vm.zeroThoughts = true;
 
-                vm.zeroThoughts = true;
+		vm.newThought = newThought;
 
+		function newThought() {
+			var newIdeaModal = ngDialog.open({
+				template: 'publish-thought.modal.html',
+				className: 'ngdialog-theme-default videoOverview',
+				controller: 'ThoughtCreateCtrl',
+				controllerAs: 'vm'
+			});
 
+			newIdeaModal.closePromise.then(function (Data) {
+				if (Data.value == "register") {
+					$state.go("home");
+				} else if (Data.value == "login") {
+					$rootScope.$broadcast("crs-login");
+				} else {
+					$state.go("home");
+				}
+			});
+		}
 
-        }
+	}
 
-        angular.module('rapp')
-                .controller('ThoughtCreateCtrl', ['DataCtx', 'localStorageService', 'ngDialog', '$rootScope', '$state', StudentManageCtrl]);
+	angular.module('rapp')
+		.controller('ThoughtCreateCtrl', ['DataCtx', 'localStorageService', '$rootScope', '$state', ThoughtCreateCtrl]);
 
+	function ThoughtCreateCtrl(DataCtx, localStorageService, $rootScope, $state) {
+		var vm = this;
 
-        function StudentManageCtrl(DataCtx, localStorageService, ngDialog, $rootScope, $state) {
-                var vm = this;
-                vm.page = {
-                        title: "Manage Students"
-                };
-
-                vm.Students = [];
-                vm.uploadStudents = uploadStudents;
-
-                DataCtx.session.get({id: 'students'}).$promise.then(loadStudents, errLoading);
-
-                function loadStudents(res) {
-                        if (res.code == "00") {
-                                vm.Students = res.data;
-                        }
-
-                }
-
-                function errLoading(res) {
-                        console.log(res);
-                }
-
-                function uploadStudents (){
-                        $state.go('student-upload');
-                }
-
-
-                function add() {
-
-                }
-
-        }
-
+	}
 })();

@@ -5,6 +5,7 @@
 	angular.module('rapp')
 		.controller('HomeCtrl', ['DataCtx', 'ngDialog', 'UserSrv', '$rootScope', '$state', 'WidgetSrv', HomeCtrl])
 		.controller('VerifyCtrl', ['DataCtx', 'ngDialog', '$rootScope', '$state', '$stateParams', 'WidgetSrv', VerifyCtrl])
+		.controller('PasswordCtrl', ['DataCtx', 'ngDialog', '$rootScope', '$state', '$stateParams', 'WidgetSrv', PasswordCtrl])
 		.controller('LayoutCtrl', ['$scope', 'ngDialog', 'DataCtx', 'UserSrv', '$state', '$rootScope', LayoutCtrl]);
 
 	//Home Controller
@@ -25,13 +26,12 @@
 			vm.loggedIn = false;
 		};
 
-
 		vm.registerUser = registerUser;
 
 		function registerUser() {
-			console.log('Registering');
-			var UserResource = new DataCtx.user();
+			//console.log('Registering');
 
+			var UserResource = new DataCtx.user();
 			UserResource.firstname = vm.user.firstname;
 			UserResource.lastname = vm.user.lastname;
 			UserResource.country = vm.user.country;
@@ -68,6 +68,39 @@
 						$state.go("home");
 					});
 
+					console.log(res);
+				}
+			});
+		}
+	}
+	function PasswordCtrl(DataCtx, ngDialog, $rootScope, $state, $stateParams, WidgetSrv) {
+		var vm = this;
+
+		vm.page = {
+			title: "Resetting Password",
+			subTitle: $stateParams.email
+		};
+
+		vm.email = $stateParams.email;
+		vm.resetPassword = resetPassword;
+
+		function resetPassword() {
+			var Email = new DataCtx.base();
+			Email.email = $stateParams.email;
+			Email.confirmation_code = $stateParams.code;
+
+			Email.$save().then(function (res) {
+				if (res.code === "00") {
+					var suc = WidgetSrv.successDialog({
+						title: 'Yay',
+						message: 'Your email has been verified you can now login',
+						icon: 'fa-adjust',
+						button: 'Cool'
+					});
+					suc.closePromise.then(function () {
+						$state.go("home");
+					});
+				} else {
 					console.log(res);
 				}
 			});

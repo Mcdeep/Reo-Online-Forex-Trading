@@ -1,0 +1,36 @@
+<page-header page="vm.page"></page-header>
+
+<section id="register-manage">
+
+        <div class="container">
+                <div class="row">
+                        <div class="col s12 toolbar">
+                                <div class="col s6">
+                                        <input name="searh" placeholder="Search" ng-model="vm.search"/>
+                                </div>
+                                <div class="col right-align s6">
+
+                                </div>
+                        </div>
+                        <table>
+                                <thead>
+                                        <tr>
+                                                <th data-field="id"><i class="fa fa-genderless"></i></th>
+                                                <th data-field="student_number">Student Number</th>
+                                                <th data-field="firstname">Name</th>
+                                                <th data-field="cellphone">Cellphone</th>
+                                                <th><i class="fa fa-th"></i></th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr ng-repeat="student in vm.Students | filter: vm.search">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{student.lastname + ', ' + student.firstname}}</td>
+                                                <td>{{student.cellphone}}</td>
+                                                <td></td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                </div>
+        </div>
+</section>

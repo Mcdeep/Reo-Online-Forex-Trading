@@ -18,7 +18,7 @@
                       <h4>No modules uploaded</h4>
                     </div>
                     <div class="col s4" ng-repeat="lesson in vm.Modules | filter:vm.crs_search ">
-                        <div class="card small">
+                        <div class="card small" ng-class="{'enabled': lesson.enabled }">
                             <!-- Card Content -->
                             <p class="md-count">{{lesson.lesson}}</p>
                             <div class="card-content">
@@ -26,8 +26,11 @@
                                     {{lesson.name}}
                                 </span>
                                 <p>{{lesson.description}}</p>
+                                <p class="crs-status" ng-class="{'completed': lesson.status=='completed'}" ng-if="lesson.status">{{lesson.status}}</p>
+
                                 <div class="card-action">
-                                    <a href="#/lesson/{{lesson.id}}">Start Module</a>
+                                    <p ng-if="!lesson.enabled">Start Module</p>
+                                    <a ng-if="lesson.enabled"  href="#/lesson/{{lesson.id }}">{{(lesson.status=='completed') ? 'ReDO': (lesson.status=='incomplete') ? 'RESUME' : 'Start Module' }}</a>
                                 </div>
                             </div>
                         </div>
