@@ -10,7 +10,7 @@
             </div>
 
 {{vm.csv.result}}
-            <table>
+            <table class="striped highlight">
               <thead>
                 <tr>
                     <th data-field="id">#</th>
@@ -30,7 +30,7 @@
                   <td>{{session.slots}}</td>
                   <td>{{session.location}}</td>
                   <td>{{session.duration}}</td>
-                  <td></td>
+                  <td><a ui-sref="schedule-register({id:session.id})"><i class="fa fa-file-text-o"></i></a></td>
                 </tr>
               </tbody>
             </table>

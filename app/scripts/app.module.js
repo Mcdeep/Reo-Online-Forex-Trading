@@ -1,7 +1,7 @@
-(function () {
+(function() {
 	'use strict';
 
-	var app = angular.module("rapp",
+	var app = angular.module('rapp',
 		['ui.router',
 			'ngSanitize',
 			'ngAnimate',
@@ -48,6 +48,12 @@
 				url: "/schedule-manage",
 				templateUrl: "templates/list.schedule.tmpl.html",
 				controller: 'ScheduleManageCtrl',
+				controllerAs: 'vm'
+			})
+			.state('schedule-register', {
+				url: "/schedule-register/:id",
+				templateUrl: "templates/list.class.register.tmpl.html",
+				controller: 'ClassRegisterCtrl',
 				controllerAs: 'vm'
 			})
 			.state('schedule-me', {

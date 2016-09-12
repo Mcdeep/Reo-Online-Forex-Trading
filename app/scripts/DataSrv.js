@@ -15,6 +15,7 @@
 			user: 		$resource(endpoint + 'auth/register'),
 			thoughts: 	$resource(endpoint + 'thoughts', {id: '@id'}),
 			session: 	$resource(endpoint + 'sessions/:id', {id: '@id'}),
+			register: 	$resource(endpoint + 'sessions/register/:id', {id: '@id'}),
 			userinfo: 	$resource(endpoint + 'userdetails'),
 			base: 		$resource(endpoint + 'email'),
 			reset: 		$resource(endpoint + 'resetPassword'),
