@@ -145,6 +145,7 @@ gulp.task('scripts', () =>
        './app/scripts/StudentCtrl.js',
        './app/scripts/ThoughtCtrl.js',
        './app/scripts/CourseLessonCtrl.js',
+       './app/scripts/ProfileCtrl.js',
        './app/scripts/Components.js',
        './app/scripts/main.js'
       // Other scripts

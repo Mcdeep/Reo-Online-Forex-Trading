@@ -141,10 +141,12 @@
 	}
 
 	//Layout Controller
-	function LayoutCtrl($scope, ngDialog, DataCtx, UserSrv, $state, $rootScope) {
-		var lt = this;
-		lt.quiz = false;
-		lt.loggedIn = UserSrv.checkUserAuth();
+	function LayoutCtrl($scope, ngDialog, UserSrv, $state, $rootScope) {
+		var lt 			= this;
+		lt.quiz 		= false;
+		lt.tradebook 	= false;
+
+		lt.loggedIn 	= UserSrv.checkUserAuth();
 
 		if (lt.loggedIn) {
 			lt.loginUser = UserSrv.getUserInfo();
@@ -161,6 +163,10 @@
 		function gotoView(state) {
 			$state.go(state);
 		}
+
+		$rootScope.$on('$stateChangeSuccess', function(evt, toS){
+			lt.tradebook = toS.name == "thoughts";
+		});
 
 		function logOut() {
 			$rootScope.$broadcast('logout');

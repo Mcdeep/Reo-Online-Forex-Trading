@@ -1,37 +1,48 @@
 <header>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <div class="container">
-          <a href="" class="brand-logo"> <img src="images/logo.png" alt="Raynata Elizatbeth Osman">
-          </a>
-          <ul ng-hide="vm.quiz" id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="nav-item" ui-sref="home">Home</a></li>
-            <li><a class="nav-item" ui-sref="course">Course</a></li>
-            <li><a class="nav-item" ui-sref="thoughts" ng-if="vm.loggedIn">Thoughts</a></li>
-            <li><a class="nav-item" ui-sref="schedule" ng-if="vm.loggedIn">Schedule</a></li>
-            <li><a class="nav-item button" ng-show="vm.loggedIn" data-activates='userDropdown' dropdown data-hover="true"><i class="fa fa-user" style="margin-right:5px"></i>{{vm.loginUser.firstname}}
-                        </a></li>
-            <li><a class="nav-item button button_highlight " ng-if="!vm.loggedIn" ng-click="vm.openLogin()">Login</a></li>
-          </ul>
-          <!-- Dropdown Structure -->
-          <ul id="userDropdown" class='dropdown-content'>
-            <li><a href="javascript:void(0);">Profile</a></li>
-            <li><a ng-click="vm.logOut()">Logout</a></li>
-          </ul>
+        <div class="navbar-fixed">
+                <nav>
+                        <div class="nav-wrapper">
+                                <div class="container">
+                                        <a href="" class="brand-logo">
+                                                <img src="images/logo.png" alt="Raynata Elizatbeth Osman" />
+                                        </a>
+                                        <ul ng-hide="vm.quiz" id="nav-mobile" class="right hide-on-med-and-down">
+                                                <li><a class="nav-item" ui-sref="home">Home</a></li>
+                                                <li><a class="nav-item" ui-sref="course">Course</a></li>
+                                                <li><a class="nav-item" ui-sref="thoughts"
+                                                       ng-if="vm.loggedIn">Tradebook</a></li>
+                                                <li><a class="nav-item" ui-sref="schedule"
+                                                       ng-if="vm.loggedIn">Schedule</a></li>
+                                                <li><a class="nav-item button" ng-show="vm.loggedIn"
+                                                       data-activates='userDropdown' dropdown data-hover="true"><i
+                                                        class="fa fa-user" style="margin-right:5px"></i>{{vm.loginUser.firstname}}
+                                                </a></li>
+                                                <li><a class="nav-item button button_highlight " ng-if="!vm.loggedIn"
+                                                       ng-click="vm.openLogin()">Login</a></li>
+                                        </ul>
+
+                                        <!-- Dropdown Structure -->
+                                        <ul id="userDropdown" class='dropdown-content'>
+                                                <li><a ui-sref="profile">Profile</a></li>
+                                                <li><a ng-click="vm.logOut()">Logout</a></li>
+                                        </ul>
+                                </div>
+                        </div>
+                </nav>
+
         </div>
-      </div>
-    </nav>
-  </div>
 </header>
 
-<div ng-if="vm.loggedIn && vm.loginUser.role !=='student'" class="fixed-action-btn horizontal" style="bottom: 45px; right:24px">
-  <a class="btn-floating btn-large red">
-    <i class="fa fa-cogs"></i>
-  </a>
-  <ul>
-          <li><a ng-click="vm.gotoView('schedule-manages')" class="btn-floating red"><i class="fa fa-calendar"></i></a></li>
-          <li><a ng-click="vm.gotoView('student-manage')" class="btn-floating green"><i class="fa fa-users"></i></a></li>
-          <!-- <li><a ng-click="vm.gotoView('')" class="btn-floating blue"><i class="fa fa-flask"></i></a></li> -->
-  </ul>
+<div ng-if="vm.loggedIn && vm.loginUser.role !=='student'" class="fixed-action-btn horizontal"
+     style="bottom: 45px; right:24px">
+        <a class="btn-floating btn-large red">
+                <i class="fa fa-cogs"></i>
+        </a>
+        <ul>
+                <li><a ng-click="vm.gotoView('schedule-manages')" class="btn-floating red"><i
+                        class="fa fa-calendar"></i></a></li>
+                <li><a ng-click="vm.gotoView('student-manage')" class="btn-floating green"><i
+                        class="fa fa-users"></i></a></li>
+                <!-- <li><a ng-click="vm.gotoView('')" class="btn-floating blue"><i class="fa fa-flask"></i></a></li> -->
+        </ul>
 </div>

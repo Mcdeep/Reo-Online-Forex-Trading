@@ -3,13 +3,13 @@
         <div id="hero" class="mdl-layout_content">
                 <div class="container">
                         <div class="row">
-                                <div class="col s6">
+                                <div class="col m6 hide-on-small-only">
                                         <h1 class="title">Free online forex Trading Course</h1>
 
                                         <h2 class="sub_title">This course is worth over R10000 and its absolutely
                                                 free</h2>
                                 </div>
-                                <div class="form-sign col s4 offset-s2">
+                                <div class="form-sign col m4 s12 offset-m2">
                                         <div class="col s12" style="text-align:center" ng-if="vm.loggedIn">
                                                 <h4 style="color:white">Welcome</h4>
                                                 <h6 style="color:grey">{{ vm.loggedUser.firstname + ' ' +
@@ -32,7 +32,6 @@
                                                                 class="fa fa-sign-out left"></i>SIGN-OUT</a>
                                                 </p>
                                         </div>
-
 
                                         <form ng-submit="vm.registerUser()" name="frmRegister" ng-if="!vm.loggedIn"
                                               novalidate>
@@ -115,6 +114,7 @@
                         </div>
                 </div>
         </div>
+
 </section>
 
 <div ng-include="'templates/footer.tmpl.html'"></div>

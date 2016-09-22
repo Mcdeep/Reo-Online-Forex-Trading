@@ -48,7 +48,9 @@
 					Login.$save().then(function (res) {
 						if (angular.isDefined(res.token)) {
 							Materialize.toast("Login Successful", 2000);
+
 							localStorageService.set('token', res.token);
+
 							DataCtx.userinfo.get().$promise.then(function (res) {
 								localStorageService.set('userInfo', res.data);
 								vm.log.email = "";
