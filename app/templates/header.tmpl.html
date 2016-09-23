@@ -1,15 +1,18 @@
 <header>
-        <div class="navbar-fixed">
+        <div class="navbar-fixed" ng-class="{'tradebook': vm.tradebook}">
                 <nav>
                         <div class="nav-wrapper">
                                 <div class="container">
-                                        <a href="" class="brand-logo">
-                                                <img src="images/logo.png" alt="Raynata Elizatbeth Osman" />
+                                        <a href="" ng-if="!vm.tradebook" class="brand-logo animated slideInDown">
+                                                <img  src="images/logo.png" alt="Raynata Elizatbeth Osman" />
+                                        </a>
+                                        <a href="" ng-if="vm.tradebook" class="brand-logo animated slideInDown">
+                                                <img  src="images/tradebook.png" width="130" alt="Tradebook" />
                                         </a>
                                         <ul ng-hide="vm.quiz" id="nav-mobile" class="right hide-on-med-and-down">
                                                 <li><a class="nav-item" ui-sref="home">Home</a></li>
                                                 <li><a class="nav-item" ui-sref="course">Course</a></li>
-                                                <li><a class="nav-item" ui-sref="thoughts"
+                                                <li><a class="nav-item" ui-sref="thoughts.index"
                                                        ng-if="vm.loggedIn">Tradebook</a></li>
                                                 <li><a class="nav-item" ui-sref="schedule"
                                                        ng-if="vm.loggedIn">Schedule</a></li>
@@ -29,12 +32,11 @@
                                 </div>
                         </div>
                 </nav>
-
         </div>
 </header>
 
 <div ng-if="vm.loggedIn && vm.loginUser.role !=='student'" class="fixed-action-btn horizontal"
-     style="bottom: 45px; right:24px">
+     style="bottom: 45px; left:24px">
         <a class="btn-floating btn-large red">
                 <i class="fa fa-cogs"></i>
         </a>

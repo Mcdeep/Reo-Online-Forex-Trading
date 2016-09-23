@@ -6,7 +6,8 @@
 		.controller('HomeCtrl', ['DataCtx', 'ngDialog', 'UserSrv', '$rootScope', '$state', 'WidgetSrv', HomeCtrl])
 		.controller('VerifyCtrl', ['DataCtx', 'ngDialog', '$rootScope', '$state', '$stateParams', 'WidgetSrv', VerifyCtrl])
 		.controller('PasswordCtrl', ['DataCtx', 'ngDialog', '$rootScope', '$state', '$stateParams', 'WidgetSrv', PasswordCtrl])
-		.controller('LayoutCtrl', ['$scope', 'ngDialog', 'DataCtx', 'UserSrv', '$state', '$rootScope', LayoutCtrl]);
+		.controller('LayoutCtrl', ['$scope', 'ngDialog', 'UserSrv', '$state', '$rootScope', LayoutCtrl]);
+	//$scope, ngDialog, UserSrv, $state, $rootScope
 
 	//Home Controller
 	function HomeCtrl(DataCtx, ngDialog, UserSrv, $rootScope, $state, WidgetSrv) {
@@ -146,11 +147,17 @@
 		lt.quiz 		= false;
 		lt.tradebook 	= false;
 
+
 		lt.loggedIn 	= UserSrv.checkUserAuth();
 
 		if (lt.loggedIn) {
 			lt.loginUser = UserSrv.getUserInfo();
 		}
+
+		$rootScope.$on('$stateChangeSuccess', function(evt, toS){
+			console.log($state);
+			lt.tradebook = $state.$current.parent.self.name == "thoughts";
+		});
 
 		lt.viewMySession = viewMySession;
 		lt.gotoView = gotoView;
@@ -164,9 +171,6 @@
 			$state.go(state);
 		}
 
-		$rootScope.$on('$stateChangeSuccess', function(evt, toS){
-			lt.tradebook = toS.name == "thoughts";
-		});
 
 		function logOut() {
 			$rootScope.$broadcast('logout');

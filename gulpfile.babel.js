@@ -147,7 +147,8 @@ gulp.task('scripts', () =>
        './app/scripts/CourseLessonCtrl.js',
        './app/scripts/ProfileCtrl.js',
        './app/scripts/Components.js',
-       './app/scripts/main.js'
+       './app/scripts/main.js',
+        './app/scripts/tradebook.component.js'
       // Other scripts
     ])
       .pipe($.newer('.tmp/scripts'))

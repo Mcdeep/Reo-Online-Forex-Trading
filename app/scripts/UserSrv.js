@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('rapp')
-    .factory('UserSrv', ['DataCtx','localStorageService',UserSrv]);
+    .factory('UserSrv', ['localStorageService',UserSrv]);
 
-  function UserSrv(DataCtx, localStorageService) {
+  function UserSrv(localStorageService) {
     return {
       checkUserAuth: checkUserAuth,
       getUserInfo  : getUserInfo,
@@ -22,7 +22,6 @@
 
     function checkUserAuth(){
       var userInfo =  localStorageService.get("userInfo");
-      console.log(userInfo);
      return (userInfo!==null);
     }
 

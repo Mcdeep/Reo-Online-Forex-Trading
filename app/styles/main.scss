@@ -37,6 +37,7 @@ $font-family: 'Ubuntu', 'Roboto', sans-serif !important;
 * {
   box-sizing: border-box;
 }
+
 q
 *::-moz-placeholder {
   color: white;
@@ -168,7 +169,7 @@ nav {
   height: 100px;
   line-height: 100px;
 
-  ul a{
+  ul a {
     display: inline-block;
   }
   .nav-wrapper {
@@ -193,6 +194,23 @@ nav {
   }
 }
 
+.tradebook {
+  nav {
+
+    background-color: #3b5998;
+    border-bottom: 1px solid #29487d;
+    transition: all linear .5s;
+  }
+
+  .brand-logo {
+    padding-top: 0 !important;
+  }
+}
+
+.brand-logo.ng-leave {
+  opacity: 0;
+}
+
 //---------------BANNER
 #banner {
   #hero {
@@ -200,12 +218,14 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 4rem 0 6rem;
+
     .sub_title,
     .title {
       text-align: center;
       margin: 0;
       color: $white;
     }
+
     .title {
       font-size: 3.3rem;
       font-weight: 100;
@@ -213,6 +233,7 @@ nav {
       margin-top: 5rem;
       text-shadow: 1px 1px 1px black;
     }
+
     .sub_title {
       font-size: 1.35rem;
       margin: 1rem auto 2rem 0;
@@ -220,15 +241,18 @@ nav {
       line-height: 1.8rem;
       opacity: 0.7;
     }
+
     .form-sign {
       padding: 0.8rem 0;
       background-color: rgba(255, 255, 255, .2);
       border-radius: 10px;
     }
+
     form {
       button {
         width: 100%;
       }
+
       input[type="email"],
       input[type="password"],
       input[type="tel"],
@@ -248,6 +272,7 @@ nav {
   padding: 0 0.2rem;
   background-color: rgba(186, 140, 55, 0.54);
   border-bottom: 1px solid #da9a1e;
+
   .lesson_number {
     position: absolute;
     font-size: 2rem;
@@ -262,6 +287,7 @@ nav {
     height: 70px;
     line-height: 55px;
   }
+
   .row {
     margin-bottom: 0;
   }
@@ -293,19 +319,23 @@ nav {
     box-shadow: 0 0 57px 0 rgba(4, 6, 9, 0.25);
     border-radius: 0.4rem;
     transition: all 0.12s ease-in;
+
     .icon {
       width: 3rem;
       transition: all 0.12s ease-in;
     }
+
     h3 {
       margin: 0;
       font-size: 1.2rem;
       color: $suttle_brown;
       transition: all 0.12s ease-in;
     }
+
     &:first-child {
       margin-left: 1%;
     }
+
     &:hover {
       box-shadow: 0 0 57px 0 rgba(4, 6, 9, 0.5);
       z-index: 892;
@@ -412,7 +442,7 @@ nav {
   }
   .card {
     opacity: 0.5;
-    &.enabled{
+    &.enabled {
       transition: transform 0.3s ease-in-out;
       opacity: 1;
     }
@@ -426,7 +456,7 @@ nav {
       top: 3rem;
       left: -2px;
     }
-    &.small{
+    &.small {
       height: 230px;
     }
     .md-count {
@@ -451,7 +481,7 @@ nav {
       font-weight: 500;
       line-height: 25px;
     }
-    .crs-status{
+    .crs-status {
       position: absolute;
       bottom: 68px;
       width: 100%;
@@ -460,7 +490,7 @@ nav {
       background: goldenrod;
       color: white;
 
-      &.completed{
+      &.completed {
         background: #5c9c6e;
       }
     }
@@ -576,14 +606,14 @@ nav {
   }
 
   /*Results Dialog*/
-  .results{
-    .score-title{
+  .results {
+    .score-title {
       font-size: medium;
     }
-    .score-results{
+    .score-results {
       font-size: x-large;
     }
-    .msg{
+    .msg {
       font-size: small;
     }
   }
@@ -795,7 +825,6 @@ nav {
   }
   .ngdialog-content button {
     width: auto;
-    width: auto;
     font-weight: lighter;
     font-size: small;
   }
@@ -828,15 +857,92 @@ nav {
     font-size: 14px;
   }
 }
-.profile-details{
-  img{
-    margin-top: 20px;
-    width: 100px;
-  }
-  h3{
-    margin-top: 10px;
-    font-size: large;
-    font-weight: 300;
+
+
+
+#tradebook-container{
+  padding-top: 20px;
+  background-color: #e9ebee;
+
+  .profile-details {
+    padding: 15px;
+    border: 1px solid;
+    background-color: #fff;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+
+    img {
+      margin-top: 20px;
+      width: 66px;
+    }
+
+    h3 {
+      font-size: large;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
   }
 
+  .collection .collection-item{
+    background-color: #e9ebee;
+    color: black;
+  }
+
+  .container > .row {
+    margin-bottom: 0;
+  }
+
+  .post-card{
+    padding: 15px;
+    border: 1px solid;
+    background-color: #fff ;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+
+    .header{
+      margin-bottom: 10px;
+      img{
+
+      }
+      div{
+        width: 85%;
+        padding-left: 10px;
+        h4{
+          font-size: small;
+          color: #2645a1;
+          display: inline-block;
+          margin: 0;
+        }
+        p{
+          margin: 0;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .body{
+      margin-top: 55px;
+      .title-stats{
+        padding-top: 13px;
+        margin-bottom: 15px;
+
+        h5{
+          margin: 0;
+          font-size: small;
+        }
+
+        .stats{
+          margin-top: -4px;
+        }
+      }
+
+      p{
+        clear: both;
+        opacity: 0.8;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }

@@ -1,31 +1,26 @@
 
-<page-header page="vm.page" ></page-header>
-
-<section id="schedule-me">
+<section id="tradebook-container">
   <div class="container">
-    <div class="row" ng-hide="vm.zeroThoughts">
-      <ul class="session">
-        <li ng-repeat="session in vm.sessions">
-          <session-item on-book="vm.bookSession(session)" session="session"></session-item>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="row empty-response" ng-show="vm.zeroThoughts" style="text-align:center;">
-      <p>sorry</p>
-      <i class="fa fa-comments-o"></i>
-      <h4>No Published Thoughts</h4>
-      <div class="col s12">
-        <p class="action_button" style="text-align:center">
-          <button ng-click="vm.newThought()" class="waves-effect btn-large waves-light btn-radius blue-grey btn">
-            New Thought
-          </button>
-        </p>
+    <div class="row">
+      <div class="col s4">
+        <div clas s="row side-profile" >
+          <div class="profile-details" align="center">
+            <h3>Macdonald Monate</h3>
+            <img class="responsive-img circle" ng-src="{{'images/profile-pic.png'}}"/>
+          </div>
+          <ul class="collection">
+            <a ui-sref="thoughts.index" class="collection-item">Trade book</a>
+            <a ui-sref="thoughts.post" class="collection-item">My Posts</a>
+            <a ui-sref="thoughts.profile" class="collection-item">Profile</a>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col s8" style="padding:0 0 0 25px">
+        <div ui-view></div>
       </div>
     </div>
   </div>
-
-
 </section>
 
 <div ng-include="'templates/footer.tmpl.html'"></div>
