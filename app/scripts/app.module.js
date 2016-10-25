@@ -13,7 +13,8 @@
 			'anim-in-out',
 			'mgo-angular-wizard',
 			'youtube-embed',
-			'angular-jwt']);
+			'angular-jwt',
+			'naif.base64']);
 
 	app.config(['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider', 'jwtInterceptorProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, localStorageServiceProvider, jwtInterceptorProvider, $httpProvider) {
 		// For any unmatched url, redirect to /state1

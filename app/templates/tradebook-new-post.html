@@ -1,0 +1,38 @@
+<div class="overlay" ng-if="vm.addPost"></div>
+<div class="newpost post" ng-class="{'add-post' : vm.addPost }">
+
+        <div class="post-card">
+                <form name="frmPost" ng-submit="vm.publish()" novalidate>
+                        <div class="input-field col s12">
+                                <input id="title" ng-focus="vm.triggerAdd()" ng-blur="vm.triggerLeave()" type="text" ng-model="vm.data.title"   class="validate">
+                                <label for="title">Post your thought ...</label>
+                        </div>
+                        <div class="input-field col s12">
+                                <textarea id="content" class="materialize-textarea" ng-model="vm.data.content"></textarea>
+                                <label for="content">Content</label>
+                        </div>
+
+                        <div class="file-field input-field col s12">
+                                <div class="btn btn-flat">
+                                        <span><i class="fa fa-upload"></i></span>
+                                        <input type="file" ng-model='vm.data.uploadFile' accept="image/*,application/pdf"  base-sixty-four-input >
+                                </div>
+                                <div class="file-path-wrapper">
+                                        <input class="file-path validate" placeholder="File to upload { *.png, *.jpg, *.pdf}" type="text" />
+                                </div>
+                        </div>
+
+                        <div class="col s12">
+                                <p class="action_button" style="text-align:right">
+                                        <button type="submit" ng-disabled="frmPost.$invalid" class="waves-effect  waves-light  blue-grey btn">
+                                                Publish
+                                        </button>
+
+                                </p>
+                        </div>
+                </form>
+                <div class="clearfix"></div>
+        </div>
+
+</div>
+

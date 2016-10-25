@@ -122,14 +122,81 @@
         </div>
 </script>
 
+<script type="text/ng-template" id="view-thought.modal.html">
+        <div class="row">
+                <div class="col s12">
+                        <div class="avatar-section">
+                                <a href="#" class="left">
+                                        <img class="responsive-img circle" ng-src="{{'images/profile-pic.png'}}"/>
+                                </a>
+                                <h4> {{vm.Post.title}} </h4>
+                        </div>
+                </div>
+
+                <div class="col s12">
+                        <div class="post-content">
+                                <img class="responsive-img " ng-src="{{'images/usdjpy.jpg'}}" />
+                                <p>{{ vm.Post.content }}</p>
+                        </div>
+                </div>
+                <div class="col s12 comments" style="text-align:center">
+                        <comments post-comments="vm.Post.comments"></comments>
+
+                        <button type="submit" ng-click="closeThisDialog('register')"
+                                class="waves-effect waves-light btn mdl-button--colored btn-radius">
+                                Register
+                        </button>
+
+                        <button ng-click="closeThisDialog('login')" class="waves-effect waves-light btn btn-radius">
+                                Login
+                        </button>
+                </div>
+        </div>
+</script>
+
+<script type="text/ng-template" id="post-component.html">
+        <div class="post">
+                <div class="post-card">
+                        <div class="header">
+                                <img class="responsive-img circle left" width="25" ng-src="{{'images/profile-pic.png'}}"/>
+                                <div class="left">
+                                        <h4 class="truncate">{{$ctrl.postData.user.data.user_details.firstname + ' ' + $ctrl.postData.user.data.user_details.lastname}}</h4>
+                                        <p>{{$ctrl.postData.created_at | momento }}</p>
+                                </div>
+                                <div class="clearfix"></div>
+                        </div>
+
+                        <div class="body">
+                                <h5 class="truncate">
+                                        {{ $ctrl.postData.title }}
+                                </h5>
+
+                                <p>{{ $ctrl.postData.content }}</p>
+
+                                <img class="responsive-img " ng-src="{{'images/usdjpy.jpg'}}" />
+
+                                <!--  <div class="title-stats col s12" >
+                                          <div class="col s4">
+                                                  <div class="stats">
+                                                          <span><i class="fa fa-comment"></i>{{ $ctrl.postData.comments.meta.total }}</span>
+                                                  </div>
+                                          </div>
+                                  </div>-->
+
+                                <div class="clearfix"></div>
+                        </div>
+
+                </div>
+                <comments post-comments="$ctrl.postData.comments"></comments>
+                <comment-post post-info="$ctrl.postData"></comment-post>
+                <div class="clearfix"></div>
+        </div>
+</script>
+
 <script type="text/ng-template" id="publish-thought.modal.html">
         <div class="row">
                 <div class="col s12">
                         <p>Publishing Thought</p>
-
-                        <form novalidate>
-
-                        </form>
                 </div>
                 <div class="col s12" style="text-align:center">
 
@@ -144,13 +211,14 @@
         </div>
 </script>
 
+
+
 <script type="text/ng-template" id="component-page-head.html">
         <div id="hero-2" class="mdl-layout_content">
                 <div class="container">
                         <div class="row">
                                 <div class="col s12">
                                         <h2 style="text-align:center">{{ $ctrl.page.title }}</h2>
-
                                         <p style="text-align:center">{{ $ctrl.page.subTitle }}</p>
                                 </div>
                         </div>
@@ -158,20 +226,63 @@
         </div>
 </script>
 
+<script type="text/ng-template" id="comments-component.html">
+        <div class="col s12">
+                <div class="comments" ng-repeat="comment in $ctrl.postComments.data">
+                        <div class="comment">
+                                <div class="row no-margin">
+                                        <div class="col s1 valign-wrapper image-holder">
+                                                <img class="responsive-img valign" width="30" ng-src="{{'images/profile-pic.png'}}"/>
+                                        </div>
+                                        <div class="col s11">
+                                                <p style="margin: 0">
+                                                        <b style="color:#2645a1">{{ comment.user.firstname + ' ' + comment.user.lastname }}</b>
+                                                        {{ comment.content }}
+                                                </p>
+                                                <small>{{comment.created_at | momento}}</small>
+                                        </div>
+                                </div>
+                        </div>
+
+                </div>
+        </div>
+        <div class="clearfix"></div>
+</script>
+
+<script type="text/ng-template" id="comments-post-component.html">
+
+        <div class="comment-input">
+                <div class="col s1 valign-wrapper image-holder">
+                        <img class="responsive-img valign" width="25" ng-src="{{'images/profile-pic.png'}}"/>
+                </div>
+                <div class="col s11" style="position:relative">
+
+                        <form ng-submit="vm.postComment()" novalidate>
+                                <input ng-model="vm.comment" placeholder="Write comment..." required type="text" />
+                        </form>
+                        <div ng-if="vm.commenting" style="position:absolute;background-color:rgba(188,188,188,0.5);width:96%;height:97%;top:0;left:4px">
+                                <div class="progress">
+                                        <div class="indeterminate"></div>
+                                </div>
+                        </div>
+                </div>
+                <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+</script>
+
 <script type="text/ng-template" id="component-session-item.html">
         <div class="col s12 item">
                 <div class="col s7">
                         <div class="col s12">
                                 <div class="col s3 day">
-                                        <h3> {{$ctrl.day}} </h3>
-                                        <span>  {{$ctrl.month}} </span>
+                                        <h3> {{ $ctrl.day }} </h3>
+                                        <span>  {{ $ctrl.month }} </span>
                                 </div>
                                 <div class="col s8">
                                         <p class="time">
-                                                {{$ctrl.weekDay}}<i class="fa fa-clock-o"
-                                                                    style="font-size:18px; margin:0 5px"></i>{{$ctrl.time}}
+                                                {{ $ctrl.weekDay }}<i class="fa fa-clock-o" style="font-size:18px; margin:0 5px"></i>{{$ctrl.time}}
                                         </p>
-
                                         <p class="level">
                                                 {{ $ctrl.session.level }}
                                         </p>
@@ -180,9 +291,8 @@
                 </div>
                 <div class="col s5" style="text-align:center">
                         <p class="slots">
-                                {{$ctrl.session.available}} open Slots
+                                {{ $ctrl.session.available }} open Slots
                         </p>
-
                         <button ng-click="$ctrl.book()" class="waves-effect blue-grey btn-small waves-light btn-flat">
                                 Book Slot
                         </button>

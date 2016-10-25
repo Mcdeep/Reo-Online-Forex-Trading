@@ -206,7 +206,7 @@
 		vm.Students = [];
 
 		function studentAttend (id){
-			console.log('sssss', id);
+
 			var confirm = WidgetSrv.confirmDialog({
 				title: 'Attendance Register',
 				message: 'Mark Student as attended class',

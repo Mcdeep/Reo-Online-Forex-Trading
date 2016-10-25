@@ -9,8 +9,8 @@
                                         <a href="" ng-if="vm.tradebook" class="brand-logo animated slideInDown">
                                                 <img  src="images/tradebook.png" width="130" alt="Tradebook" />
                                         </a>
-                                        <ul ng-hide="vm.quiz" id="nav-mobile" class="right hide-on-med-and-down">
-                                                <li><a class="nav-item" ui-sref="home">Home</a></li>
+                                        <ul ng-hide="vm.quiz" id="nav-mobile" class="right">
+                                                <li><a class="nav-item" href="http://reofoundation.co.za">Home</a></li>
                                                 <li><a class="nav-item" ui-sref="course">Course</a></li>
                                                 <li><a class="nav-item" ui-sref="thoughts.index"
                                                        ng-if="vm.loggedIn">Tradebook</a></li>
@@ -22,6 +22,13 @@
                                                 </a></li>
                                                 <li><a class="nav-item button button_highlight " ng-if="!vm.loggedIn"
                                                        ng-click="vm.openLogin()">Login</a></li>
+                                        </ul>
+
+                                        <ul class="side-nav" id="mobile-demo">
+                                                <li><a href="sass.html">Sass</a></li>
+                                                <li><a href="badges.html">Components</a></li>
+                                                <li><a href="collapsible.html">Javascript</a></li>
+                                                <li><a href="mobile.html">Mobile</a></li>
                                         </ul>
 
                                         <!-- Dropdown Structure -->
@@ -36,7 +43,7 @@
 </header>
 
 <div ng-if="vm.loggedIn && vm.loginUser.role !=='student'" class="fixed-action-btn horizontal"
-     style="bottom: 45px; left:24px">
+     style="bottom: 200px; right:40px">
         <a class="btn-floating btn-large red">
                 <i class="fa fa-cogs"></i>
         </a>

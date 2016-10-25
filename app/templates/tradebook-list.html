@@ -1,38 +1,6 @@
 <div class="row">
-  <div class="col s6">
-    <div class="post-card">
-      <div class="header">
-        <img class="responsive-img circle left" width="25" ng-src="{{'images/profile-pic.png'}}"/>
-        <div class="left">
-          <h4>USD/JPY</h4>
-          <p>6 Minutes ago</p>
+        <trade-new></trade-new>
+        <div class="col s12" ng-repeat="post in vm.Posts">
+                <post post-data="post"></post>
         </div>
-      </div>
-      <div class="body">
-        <img class="responsive-img " ng-src="{{'images/usdjpy.jpg'}}" />
-        <div class="title-stats col s12" >
-          <div class="col s8">
-            <h5 class="truncate">
-              USD/JPY
-            </h5>
-          </div>
-          <div class="col s4">
-            <div class="stats">
-              <span><i class="fa fa-comment"></i>12</span>
-            </div>
-          </div>
-        </div>
-        <p>While “yield curve control,” is new territory for the Bank of Japan, </p>
-      </div>
-      <div class="buttons">
-        <a class="btn">
-          View
-        </a>
-        <a class="btn">
-          Comment
-        </a>
-      </div>
-    </div>
-  </div>
-
 </div>

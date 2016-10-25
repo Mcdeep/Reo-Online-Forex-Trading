@@ -2,37 +2,15 @@
 	'use strict';
 
 	angular.module('rapp')
-		.controller('ThoughtCtrl', ['DataCtx', 'localStorageService', 'ngDialog', '$rootScope', '_m', '$scope', ThoughtCtrl]);
+		.controller('ThoughtCtrl', ['DataCtx', 'localStorageService', 'ngDialog', '$rootScope', '_m', 'UserSrv', ThoughtCtrl]);
 
-	function ThoughtCtrl(DataCtx, localStorageService, ngDialog, $rootScope, _m, $scope) {
+	function ThoughtCtrl(DataCtx, localStorageService, ngDialog, $rootScope, _m, UserSrv) {
 		var vm = this;
-		vm.page = {
-			title: "Thoughts",
-			subTitle: "Share thoughts of the Market"
-		};
-		vm.zeroThoughts = true;
 
-		vm.newThought = newThought;
-
-		function newThought() {
-			var newIdeaModal = ngDialog.open({
-				template: 'publish-thought.modal.html',
-				className: 'ngdialog-theme-default videoOverview',
-				controller: 'ThoughtCreateCtrl',
-				controllerAs: 'vm'
-			});
-
-			newIdeaModal.closePromise.then(function (Data) {
-				if (Data.value == "register") {
-					$state.go("home");
-				} else if (Data.value == "login") {
-					$rootScope.$broadcast("crs-login");
-				} else {
-					$state.go("home");
-				}
-			});
+		vm.Profile = UserSrv.checkUserAuth();
+		if (vm.Profile) {
+			vm.Profile = UserSrv.getUserInfo();
 		}
-
 	}
 
 	angular.module('rapp')

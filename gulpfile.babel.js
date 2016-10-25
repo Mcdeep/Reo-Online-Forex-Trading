@@ -134,6 +134,7 @@ gulp.task('scripts', () =>
        './bower_components/angular-jwt/dist/angular-jwt.js',
        './bower_components/angular-busy/dist/angular-busy.js',
         './bower_components/angular-csv-import/dist/angular-csv-import.js',
+        './bower_components/angular-base64-upload/dist/angular-base64-upload.js',
        './app/scripts/app.module.js',
        './app/scripts/DataSrv.js',
        './app/scripts/WidgetSrv.js',

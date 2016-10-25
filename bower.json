@@ -45,6 +45,7 @@
     "materialize-clockpicker": "*",
     "moment": "^2.14.1",
     "angular-csv-import": "^0.0.36",
-    "lodash": "^4.15.0"
+    "lodash": "^4.15.0",
+    "angular-base64-upload": "^0.1.19"
   }
 }
