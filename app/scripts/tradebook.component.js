@@ -2,7 +2,7 @@
 	angular.module('rapp')
 		.component('tradeList', {
 			templateUrl: "templates/tradebook-list.html",
-			controller: ["_m","DataCtx","ngDialog", TradeBookList],
+			controller: ["_m","DataCtx","ngDialog","UserSrv", TradeBookList],
 			controllerAs: "vm"
 		})
 		.component('tradePost', {
@@ -26,16 +26,20 @@
 
 
 	/* Post Controller*/
-	function TradeBookList(_m, DataCtx, ngDialog) {
+	function TradeBookList(_m, DataCtx, ngDialog, UserSrv) {
 		var vm = this;
 		vm.Posts = [];
 		vm.meta = {};
+		vm.user = UserSrv.getUserInfo();
 		/*Functions*/
 		vm.getPosts = getPosts;
 		vm.viewPost	= viewPost;
 
-		function viewPost (post) {
+		console.log(vm.user);
 
+
+
+		function viewPost (post) {
 			var chartModal = ngDialog.open({
 				template: 'view-thought.modal.html',
 				className: 'ngdialog-theme-default chartModal',
@@ -75,6 +79,7 @@
 				//console.log()
 			});
 		}
+
 		getPosts();
 	}
 
@@ -82,7 +87,6 @@
 	/*New Post Controller*/
 	function TradeBookNewPost(_m, DataCtx) {
 		var vm = this;
-		console.log('newPost');
 
 		vm.publish = publish;
 		vm.triggerAdd = triggerAdd;

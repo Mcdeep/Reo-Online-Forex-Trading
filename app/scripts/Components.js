@@ -11,6 +11,9 @@
 				return _m(input.date).fromNow();
 			}
 		}])
+		.component('unautho', {
+			templateUrl: "unauthorized.html",
+		})
 		.component('pageHeader', {
 			templateUrl: "component-page-head.html",
 			bindings: {
@@ -35,21 +38,21 @@
 				postInfo: '='
 			},
 			controllerAs: 'vm',
-			controller: ['DataCtx' , function (DataCtx) {
+			controller: ['DataCtx', function (DataCtx) {
 				var vm = this;
 				vm.comment = "";
-				vm.commenting  = false;
+				vm.commenting = false;
 
 				vm.postComment = postComment;
 
-				function postComment () {
+				function postComment() {
 
-					if(vm.comment.trim() !== ""){
+					if (vm.comment.trim() !== "") {
 						vm.commenting = true;
 						var Comment = new DataCtx.comment();
 						Comment.content = vm.comment;
 
-						Comment.$save({id: vm.postInfo.id}).then(function (res){
+						Comment.$save({id: vm.postInfo.id}).then(function (res) {
 
 							vm.commenting = true;
 						}, function (err) {
