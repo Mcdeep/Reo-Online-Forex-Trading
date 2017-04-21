@@ -170,10 +170,9 @@
                                 <h5 class="truncate">
                                         {{ $ctrl.postData.title }}
                                 </h5>
-
                                 <p>{{ $ctrl.postData.content }}</p>
 
-                                <img class="responsive-img " ng-src="{{'images/usdjpy.jpg'}}" />
+                                <img class="responsive-img " ng-src="images/posts/{{$ctrl.postData.imageUrl}}" />
 
                                 <!--  <div class="title-stats col s12" >
                                           <div class="col s4">
@@ -250,7 +249,6 @@
 </script>
 
 <script type="text/ng-template" id="comments-post-component.html">
-
         <div class="comment-input">
                 <div class="col s1 valign-wrapper image-holder">
                         <img class="responsive-img valign" width="25" ng-src="{{'images/profile-pic.png'}}"/>
@@ -306,17 +304,16 @@
         <div class="overlay"></div>
         <div class="col s12 post post_bg" style="position: relative">
                 <div class="col s4">
-                        <p style="text-align: center"><i class="fa fa-diamond">
+                        <p style="text-align: center; font-size:55px">
+                                <i class="fa fa-diamond">
                         </i></p>
                 </div>
                 <div class="col s8">
                         <h2>Tradebook Access</h2>
-                        <p>Get Tradebook access by:</p>
-                        <ul>
-                           <li><i class="fa fa-check-circle"></i>Contacting us</li>
-                           <li><i class="fa fa-check-circle"></i>Complete our Advanced Paid Course</li>
-                           <li><i class="fa fa-check-circle"></i>Get Access</li>
-                        </ul>
+                        <p class="message">Sorry you can only access Tradebook when you have completed our Advanced Course. <br /> Let's get started </p>
+
+                       <iframe style="border:0" src="payment.html"></iframe>
+
                 </div>
         </div>
 </script>

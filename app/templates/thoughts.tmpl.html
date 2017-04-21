@@ -3,16 +3,18 @@
   <div class="container">
     <div class="row">
       <div class="col s4">
-        <div clas s="row side-profile" >
+        <div class="row side-profile" >
           <div class="profile-details" align="center">
             <h3>{{vm.Profile.firstname  + ' ' + vm.Profile.lastname  }}</h3>
             <img class="responsive-img circle" ng-src="{{'images/profile-pic.png'}}"/>
+
+            <ul class="collection">
+              <a ui-sref="thoughts.index" ui-sref-active="active" class="collection-item">Trade book</a>
+              <a ui-sref="thoughts.post" ui-sref-active="active" class="collection-item">My Posts</a>
+              <a ui-sref="thoughts.profile" ui-sref-active="active" class="collection-item">Profile</a>
+            </ul>
           </div>
-          <ul class="collection">
-            <a ui-sref="thoughts.index" ui-sref-active="active" class="collection-item">Trade book</a>
-            <a ui-sref="thoughts.post" ui-sref-active="active" class="collection-item">My Posts</a>
-            <a ui-sref="thoughts.profile" ui-sref-active="active" class="collection-item">Profile</a>
-          </ul>
+
         </div>
       </div>
 

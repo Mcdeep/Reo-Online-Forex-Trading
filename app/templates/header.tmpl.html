@@ -15,7 +15,7 @@
                                                 <li><a class="nav-item" ui-sref="thoughts.index"
                                                        ng-if="vm.loggedIn">Tradebook</a></li>
                                                 <li><a class="nav-item" ui-sref="schedule"
-                                                       ng-if="vm.loggedIn">Schedule</a></li>
+                                                       ng-if="vm.loggedIn && vm.loginUser.paid != 0">Schedule</a></li>
                                                 <li><a class="nav-item button" ng-show="vm.loggedIn"
                                                        data-activates='userDropdown' dropdown data-hover="true"><i
                                                         class="fa fa-user" style="margin-right:5px"></i>{{vm.loginUser.firstname}}

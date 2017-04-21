@@ -1045,6 +1045,31 @@ nav {
   }
 }
 
+
+.heading{
+  border-bottom: 1px solid #A9A59F;
+  padding-bottom: 9px;
+  position: relative;
+
+  span{
+    background: #6D6C6A none repeat scroll 0 0;
+    bottom: -2px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 75px;
+  }
+}
+
+.profile-heading{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+
 .comment-input{
   margin: 10px 0 0 0;
   padding: 5px;
@@ -1103,7 +1128,18 @@ nav {
 }
 
 .post_bg{
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius:42px;
+  .fa-diamond{
+   color: rgba(147, 161, 173, 0.88);
+  }
+
+  .message{
+    font-size: medium;
+    padding-right: 27px;
+    line-height: 30px;
+    font-weight: 300;
+  }
 }
 
 @media only screen and (max-width: 992px){

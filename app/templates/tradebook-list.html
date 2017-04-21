@@ -1,11 +1,11 @@
 <div class="row">
         <!--Not a Student-->
 
-        <div class="col s12">
+        <div class="col s12" ng-if="vm.user.paid==0" >
                 <unautho></unautho>
         </div>
 
-        <trade-new></trade-new>
+        <trade-new ng-if="vm.user.paid != 0" ></trade-new>
 
         <div class="col s12" ng-repeat="post in vm.Posts">
                 <post post-data="post"></post>

@@ -69,6 +69,10 @@
 								vm.message = "Invalid username / password combination";
 								vm.loading = false;
 								Materialize.toast(vm.message, 3000);
+							}else if(res.code == "09"){
+								vm.message = "Your Email Address has not been verified/Please check you emails for verification";
+								vm.loading = false;
+								Materialize.toast(vm.message, 10000);
 							}
 						}
 					}, function () {

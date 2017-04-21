@@ -37,8 +37,6 @@
 
 		console.log(vm.user);
 
-
-
 		function viewPost (post) {
 			var chartModal = ngDialog.open({
 				template: 'view-thought.modal.html',
@@ -80,7 +78,10 @@
 			});
 		}
 
-		getPosts();
+		if(vm.user.paid != 0){
+			getPosts();
+		}
+
 	}
 
 
