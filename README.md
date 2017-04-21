@@ -6,7 +6,7 @@ Run bower install
 
 Run npm install
 
-Run gulp serve to install
+To run 'gulp serve'
 
 
 ## Quickstart
