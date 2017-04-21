@@ -1,3 +1,14 @@
+## Set up
+
+Uses [Google Staterkit](https://github.com/google/web-starter-kit/)
+
+Run bower install
+
+Run npm install
+
+Run gulp serve to install
+
+
 ## Quickstart
 
 There are two HTML starting points, from which you can choose:
